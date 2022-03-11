@@ -22,7 +22,8 @@ body{
     background-color: #ffffff;
 }
 
-.select > .label{
+.select > .label,
+.select > select{
     padding: 10px 10px;
     border: 2px solid rgb(216, 216, 216);
     text-transform: capitalize;
@@ -31,7 +32,7 @@ body{
     width: 100%;
     border-radius: 5px;
     background-color: #f7f7f7;
-    transition: 0.3s all;
+    transition: 0.5s all cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .select > .options{
@@ -40,26 +41,30 @@ body{
     padding: 0;
     margin: 0;
     border: 2px solid rgb(216, 216, 216);
-    display: none;
     position: absolute;
     top: calc(100% + 2px);
     z-index: 1;
     background-color: #f7f7f7;
     border-radius: 5px;
     overflow: hidden;
-    max-height: 300px;
     overflow: auto;
+    max-height: 0;
+    transition: 0.5s all cubic-bezier(0.77, 0, 0.175, 1);
+    opacity: 0;
+    visibility: hidden;
 }
 
 .select.active > .options{
-    display: block;
+    max-height: 300px;
+    opacity: 1;
+    visibility: visible;
 }
 
 .select > .options > li{
     padding: 7px 10px;
     text-transform: capitalize;
     cursor: pointer;
-    transition: 0.3s all;
+    transition: 0.5s all cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .select > .options > li:hover,
