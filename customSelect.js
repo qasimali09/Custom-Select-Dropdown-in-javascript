@@ -30,12 +30,12 @@ const generateSelect = (target) => {
         // add custom select options
         const options = e.querySelectorAll( 'option' );
         for(let i = 0; i < options.length; i++){
-            let html = `<li value='${options[i].value}'>${options[i].innerText}</li>`;
+            let html = `<li class='${options[i].selected && 'current'}' value='${options[i].value}'>${options[i].innerText}</li>`;
             e.parentNode.querySelector( '.options' ).innerHTML += html;
         }
 
         //add options and label
-        e.parentNode.querySelector( '.label' ).innerHTML = e.getAttribute('aria-placeholder') || 'select';
+        e.parentNode.querySelector( '.label' ).innerHTML = options[0].innerHTML;
 
     }
 
@@ -58,6 +58,11 @@ const generateSelect = (target) => {
             e.closest(".select").querySelector('.label').innerHTML = e.innerHTML;
             e.closest(".select").classList.remove('active');
             e.closest(".select").querySelector('select').value = e.getAttribute("value");
+            let siblings = e.closest(".select").querySelectorAll('.options li')
+            for(s of siblings){
+                s.classList.remove('current')
+            }
+            e.classList.add('current')
         });
     });
 
