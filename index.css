@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.select{
+    width: 100%;
+    position: relative;
+    max-width: 300px;
+}
+
+.select select{
+    display: none !important;
+    background-color: #ffffff;
+}
+
+.select > .label{
+    padding: 10px 10px;
+    border: 2px solid rgb(216, 216, 216);
+    text-transform: capitalize;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    transition: 0.3s all;
+}
+
+.select > .options{
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border: 2px solid rgb(216, 216, 216);
+    display: none;
+    position: absolute;
+    top: calc(100% + 2px);
+    z-index: 1;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    overflow: hidden;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.select.active > .options{
+    display: block;
+}
+
+.select > .options > li{
+    padding: 7px 10px;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: 0.3s all;
+}
+
+.select > .options > li:hover,
+.select > .options > li.current{
+    background: rgb(219, 219, 219);
+}
